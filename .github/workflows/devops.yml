@@ -30,14 +30,15 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DHUB_USER }}/api-roblesvidal:latest
-
-      - name: linting with pylint
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.8
-      - name: Install pylint
-        run: |
-          pip install pylint
+    build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      # Paso 1: Checkout del repositorio
+      - name: Checkout Code
+        uses: actions/checkout@v4
       # Paso 2: Configurar Python
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
