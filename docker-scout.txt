@@ -1,7 +1,7 @@
  docker scout quickview qv
     ...Pulling
     ✓ Pulled
-    ✓ SBOM of image already cached, 278 packages indexed
+    ✓ SBOM of image already cached, 277 packages indexed
 
   Your image  golang:1.19.4                          │    5C     3H     6M    63L
   Base image  buildpack-deps:bullseye-scm            │    5C     1H     3M    48L     6?
