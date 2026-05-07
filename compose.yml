@@ -1,7 +1,7 @@
 
 services:
   examen:
-    image: xxxxxx/yyyyyyyyyy
-    ports:
+    image: arsenal204/api-roblesvidal:latest
+        ports:
       - 80:8000
     restart: always
