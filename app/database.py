@@ -3,7 +3,7 @@ docstring del módulo
 '''
 
 from sqlalchemy import create_engine
-# from sqlalchemy.ext.declarative imports declarative_basse
+# from sqlalchemy.ext.declarative import declarative_basse
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 
