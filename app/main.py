@@ -8,7 +8,7 @@ app = FastAPI()
 app.include_router(items.router)
 
 
-# Código que se añade
+# Código que se añaden a continuación para comprobar que la aplicación funciona correctamente
 @app.get("/status")
 def version():
     return {"status": "Robles Vidal, Diego - v.Xxx"}
