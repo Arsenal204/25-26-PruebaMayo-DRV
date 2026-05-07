@@ -11,26 +11,7 @@ on:
       - app/**
 
 jobs:
-  build:
-    name: build and push Docker image
-    runs-on: ubuntu-latest
-    steps:
-      # 1
-      - uses: actions/checkout@v4
-      # 2
-      - name: Login to DockerHub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DHUB_USER }}
-          password: ${{ secrets.DHUB_TOKEN }}
-      # 3
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ secrets.DHUB_USER }}/api-roblesvidal:latest
-    lint:
+  lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -53,6 +34,25 @@ jobs:
       - name: Analysing the code with pylint
         run: |
           pylint $(git ls-files '*.py')
+  build:
+    name: build and push Docker image
+    runs-on: ubuntu-latest
+    steps:
+      # 1
+      - uses: actions/checkout@v4
+      # 2
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DHUB_USER }}
+          password: ${{ secrets.DHUB_TOKEN }}
+      # 3
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DHUB_USER }}/api-roblesvidal:latest
   aws:
     name: Deploy image to aws
     needs: build
