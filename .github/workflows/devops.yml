@@ -30,7 +30,7 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DHUB_USER }}/api-roblesvidal:latest
-    build:
+    lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
